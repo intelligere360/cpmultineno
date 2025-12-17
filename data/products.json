@@ -57,37 +57,37 @@
         "activo": true,
         "imagenes": [
             {
-                "nombre": "2_1.jpg",
+                "nombre": "2_1.jpeg",
                 "principal": false,
                 "orden": 1
             },
             {
-                "nombre": "2_2.jpg",
+                "nombre": "2_2.jpeg",
                 "principal": false,
                 "orden": 2
             },
             {
-                "nombre": "2_3.jpg",
+                "nombre": "2_3.jpeg",
                 "principal": false,
                 "orden": 3
             },
             {
-                "nombre": "2_4.jpg",
+                "nombre": "2_4.jpeg",
                 "principal": false,
                 "orden": 4
             },
             {
-                "nombre": "2_5.jpg",
+                "nombre": "2_5.jpeg",
                 "principal": false,
                 "orden": 5
             },
             {
-                "nombre": "2_6.jpg",
+                "nombre": "2_6.jpeg",
                 "principal": false,
                 "orden": 6
             },
             {
-                "nombre": "2_7.jpg",
+                "nombre": "2_7.jpeg",
                 "principal": false,
                 "orden": 7
             },
@@ -99,4 +99,5 @@
         ],
         "vendido": false
     }
+
 ]
