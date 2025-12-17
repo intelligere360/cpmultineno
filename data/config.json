@@ -1,14 +1,14 @@
 {
-    "version": "2.0.8",
-    "version_code": "20251213-002",
-    "last_updated": "2025-12-13T12:13:00Z",
+    "version": "1.0.0",
+    "version_code": "20251217-001",
+    "last_updated": "2025-12-17T12:00:00Z",
     "force_update": false,
-    "mostrar_precios": false,
+    "mostrar_precios": true,
     "idioma": "es",
     "contacto": {
-        "telefono": "+584126597297",
-        "whatsapp": "584126597297",
-        "email": "ramonsimancas61@gmail.com",
-        "vendedor": "Peter Snoopy: DE TODO UN POCO"
+        "telefono": "+584126591968",
+        "whatsapp": "584126591968",
+        "email": "nenotecnicos@gmail.com",
+        "vendedor": "MultiÑeño: Servicios Técnicos"
     }
 }

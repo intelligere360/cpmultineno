@@ -63,11 +63,11 @@ const STATIC_CACHE = 'static-catalogo-v1.1';
 // CONFIGURACIÓN DE CONTACTO Y NOTIFICACIONES
 // =============================================
 const configContacto = {
-    telefono: "+584126597297",
-    whatsapp: "584126597297", 
-    email: "ramonsimancas61@gmail.com",
-    mensajeWhatsapp: "Hola, me interesan sus artículos del catálogo",
-    vendedor: "Cell Phone Snoopy: DE TODO UN POCO",
+    telefono: "+584126591968",
+    whatsapp: "584126591968", 
+    email: "nenotecnicos@gmail.com",
+    mensajeWhatsapp: "Hola, me interesan sus servicios del catálogo",
+    vendedor: "MultiÑeño: SERVICIOS TÉCNICOS",
     
     proveedor: {
         email: "intelligere360@gmail.com",
@@ -294,7 +294,7 @@ function limpiarInterfazNavegador() {
     if (document.title.includes('github.io') || 
         document.title.includes('http') ||
         document.title.includes('://')) {
-        document.title = 'Peter Snoopy - Catálogo Portátil';
+        document.title = 'Catálogo MultiÑeño : Servicios Técnicos y mucho másl';
     }
     
     // Buscar y limpiar elementos que puedan contener la URL

@@ -1,8 +1,8 @@
 // sw.js - CON SISTEMA DE VERSIONADO
-const APP_VERSION = 'v2.0.8'; // Actualizar manualmente aquí también
-const CACHE_NAME = 'catalogo-peter-snoopy-local-v1.0';
-const STATIC_CACHE = `static-catalogo-peter-snoopy-${APP_VERSION}`;
-const DYNAMIC_CACHE = `dynamic-catalogo-peter-snoopy-${APP_VERSION}`;
+const APP_VERSION = 'v1.0.0'; // Actualizar manualmente aquí también
+const CACHE_NAME = 'catalogo-multineno-local-v1.0';
+const STATIC_CACHE = `static-catalogo-multineno-${APP_VERSION}`;
+const DYNAMIC_CACHE = `dynamic-catalogo-multineno-${APP_VERSION}`;
 const APP_SHELL = [
   './',
   './index.html', 
@@ -14,8 +14,6 @@ const APP_SHELL = [
   './manifest.json',
   './images/icon-192.png',
   './images/icon-512.png',
-  './images/icon-192-2.png',
-  './images/icon-512-2.png',
   './images/screenshot-mobile.png',
   './images/screenshot-desktop.png',
   './images/placeholder.jpg'

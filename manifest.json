@@ -1,7 +1,7 @@
 {
-  "name": "Catálogo portátil de Ventas Peter Snoopy \"DE TODO UN POCO\"",
-  "short_name": "Peter Snoopy",
-  "description": "Catálogo portátil de artículos en venta",
+  "name": "Catálogo portátil MultiÑeño \"SERVICIOS TÉCNICOS\"",
+  "short_name": "MultiÑeño",
+  "description": "Catálogo portátil de Servicios para el Hogar y la Industria",
   "start_url": "./index.html",
   "display": "standalone",
   "categories": ["business", "shopping"],
@@ -18,24 +18,12 @@
   "icons": [
     {
       "src": "./images/icon-192.png",
-      "sizes": "232x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./images/icon-512.png",
-      "sizes": "618x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./images/icon-192-2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "./images/icon-512-2.png",
+      "src": "./images/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
