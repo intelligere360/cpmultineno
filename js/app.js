@@ -857,9 +857,6 @@ async function mostrarDetallesProducto(productoId) {
         </div>
     `;
     
-    // ✅ NUEVO: Crear carrusel con imágenes cacheadas
-    await crearCarruselConCache(producto);
-    
     // Actualizar enlaces de contacto
     const str_precio_saber = AppState.config.mostrar_precios ? 
         formatearPrecio(producto.precioMin, producto.precioMax) : 
@@ -867,6 +864,9 @@ async function mostrarDetallesProducto(productoId) {
     
     // ✅ NUEVO: Configurar todos los botones de contacto
     configurarBotonesContacto(producto, str_precio_saber);
+    
+    // ✅ NUEVO: Crear carrusel con imágenes cacheadas
+    await crearCarruselConCache(producto);
 }
 
 // ✅ FUNCIÓN MEJORADA: Configurar todos los botones de contacto
@@ -892,7 +892,7 @@ function configurarBotonesContacto(producto, str_precio_saber) {
 
 // Configurar botón de llamada
 function configurarBotonLlamada(producto) {
-    const telefono = configContacto.telefono || '+584126597297';
+    const telefono = configContacto.telefono || '+584126591968';
     const btn = document.getElementById('btnLlamada');
     
     if (btn) {
@@ -912,7 +912,7 @@ function configurarBotonLlamada(producto) {
 
 // Configurar botón de WhatsApp
 function configurarBotonWhatsApp(producto, mensaje) {
-    const whatsapp = configContacto.whatsapp || '584126597297';
+    const whatsapp = configContacto.whatsapp || '584126591968';
     const urlWhatsapp = `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensaje)}`;
     const btn = document.getElementById('whatsappModal');
     
@@ -933,7 +933,7 @@ function configurarBotonWhatsApp(producto, mensaje) {
 
 // Configurar botón de SMS
 function configurarBotonSMS(producto, mensaje) {
-    const telefono = configContacto.telefono || '+584126597297';
+    const telefono = configContacto.telefono || '+584126591968';
     const urlSMS = `sms:${telefono}?body=${encodeURIComponent(mensaje)}`;
     const btn = document.getElementById('btnSMS');
     
