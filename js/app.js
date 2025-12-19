@@ -785,6 +785,10 @@ function formatearPrecio(min, max) {
     if (min === max) {
         return `$${min.toFixed(2)}`;
     }
+    
+    if (typeof max === "string")
+        return `$${min.toFixed(2)} - ${max}`;
+
     return `$${min.toFixed(2)} - $${max.toFixed(2)}`;
 }
 
