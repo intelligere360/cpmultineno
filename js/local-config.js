@@ -10,7 +10,7 @@ const LOCAL_CONFIG = {
     CONFIG_JSON: 'config.json',
     
     // Sistema de versionado
-    VERSION_KEY: 'app_version_cache',
+    VERSION_KEY: 'appmultineno_version_cache',
     CACHE_VERSION: 'v1.0.6', // Debe coincidir con config.json
     CHECK_INTERVAL: 3600000, // 1 hora en milisegundos
 };
@@ -168,4 +168,5 @@ window.LocalConfig = {
     startUpdateChecker,
     buildLocalImageUrl,
     getLocalJson
+
 };
