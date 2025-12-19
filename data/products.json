@@ -98,5 +98,291 @@
             }
         ],
         "vendido": false
+    },
+    {
+        "id": 3,
+        "nombre": "Reparaciones generales del fluido eléctrico",
+        "categoria": "Electricidad",
+        "precioMin": 10.0,
+        "precioMax": 30.0,
+        "descripcion": "Servicio y mantenimiento, reparación, corrección de circuitos eléctricos en casas de habitación y locales comerciales.",
+        "especificaciones": "; Diagnóstico y reparación de fallas eléctricas en el hogar; Sustitución de enchufes, interruptores, tablero eléctrico, brackets, lámparas, ventiladores de techo, entre otros componentes eléctricos; Instalación de nuevos puntos eléctricos según las necesidades del cliente; ; Garantía de 15 días en mano de obra",
+        "nuevo": true,
+        "imageCount": 5,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "3_1.jpg",
+                "principal": true,
+                "orden": 1
+            },
+            {
+                "nombre": "3_2.jpg",
+                "principal": false,
+                "orden": 2
+            },
+            {
+                "nombre": "3_3.jpg",
+                "principal": false,
+                "orden": 3
+            },
+            {
+                "nombre": "3_4.jpg",
+                "principal": false,
+                "orden": 4
+            },
+            {
+                "nombre": "3_5.jpg",
+                "principal": false,
+                "orden": 5
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 4,
+        "nombre": "Reparación de fallas generales en aires acondicionados",
+        "categoria": "Climatización",
+        "precioMin": 20.0,
+        "precioMax": 80.0,
+        "descripcion": "Servicios de mantenimiento preventivo y correctivo para aires acondicionados tipo split y ventana.",
+        "especificaciones": "; Mantenimiento preventivo incluye limpieza de filtros, revisión de niveles de gas refrigerante y chequeo general del sistema; Reparación de fallas comunes como fugas de gas, problemas eléctricos y mal funcionamiento del compresor; Garantía de 15 días en mano de obra",
+        "nuevo": false,
+        "imageCount": 7,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "4_1.jpg",
+                "principal": false,
+                "orden": 1
+            },
+            {
+                "nombre": "4_2.jpg",
+                "principal": false,
+                "orden": 2
+            },
+            {
+                "nombre": "4_3.jpg",
+                "principal": true,
+                "orden": 3
+            },
+            {
+                "nombre": "4_4.jpg",
+                "principal": false,
+                "orden": 4
+            },
+            {
+                "nombre": "4_5.jpg",
+                "principal": false,
+                "orden": 5
+            },
+            {
+                "nombre": "4_6.jpg",
+                "principal": false,
+                "orden": 6
+            },
+            {
+                "nombre": "4_7.jpg",
+                "principal": false,
+                "orden": 7
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 6,
+        "nombre": "Reparación general de mesetas de cocina",
+        "categoria": "Albañilería",
+        "precioMin": 30.0,
+        "precioMax": 70.0,
+        "descripcion": "Reparación general de mesetas de cocina.",
+        "especificaciones": "; Reparación de mesetas de cocina; Reemplazo de piezas defectuosas; Asesoramiento sobre mantenimiento preventivo; Garantía de 15 días en mano de obra",
+        "nuevo": false,
+        "imageCount": 4,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "6_1.jpg",
+                "principal": true,
+                "orden": 1
+            },
+            {
+                "nombre": "6_2.jpg",
+                "principal": false,
+                "orden": 2
+            },
+            {
+                "nombre": "6_3.jpg",
+                "principal": false,
+                "orden": 3
+            },
+            {
+                "nombre": "6_4.jpg",
+                "principal": false,
+                "orden": 4
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 7,
+        "nombre": "Reparación e instalación en baños",
+        "categoria": "Albañilería",
+        "precioMin": 12.0,
+        "precioMax": 40.0,
+        "descripcion": "Reparación e instalación en baños, tales como cerámicas en piso y pared, distribución del agua, electricidad, inodoro y bañera.",
+        "especificaciones": "; Cerámicas (Piso y Pared): Instalación con mortero cola, uso de nivel y crucetas para juntas uniformes, y cortes precisos con herramientas como la amoladora para los remates; Electricidad: Cableado para iluminación, tomacorrientes (especialmente cerca de espejos y vanities), extractor de aire y puntos de luz para la ducha o bañera; Pozo Séptico/Desagües: Revisión, limpieza o instalación de conexiones de desagüe para la ducha/bañera y lavamanos, asegurando el correcto flujo y sellado; Bañadera/Ducha: Instalación de la bañera o plato de ducha, conexión a fontanería, sellado con silicona y colocación de grifería y mamparas; Asesoramiento sobre mantenimiento preventivo; Garantía de 15 días en mano de obra",
+        "nuevo": true,
+        "imageCount": 5,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "7_1.jpg",
+                "principal": false,
+                "orden": 1
+            },
+            {
+                "nombre": "7_2.jpg",
+                "principal": true,
+                "orden": 2
+            },
+            {
+                "nombre": "7_3.jpg",
+                "principal": false,
+                "orden": 3
+            },
+            {
+                "nombre": "7_4.jpg",
+                "principal": false,
+                "orden": 4
+            },
+            {
+                "nombre": "7_5.jpg",
+                "principal": false,
+                "orden": 5
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 8,
+        "nombre": "Instalación de televisores en soportes y conexión de dispositivos",
+        "categoria": "Electrodomésticos",
+        "precioMin": 10.0,
+        "precioMax": 70.0,
+        "descripcion": "Instalación de televisores en soportes y conexión de dispositivos.",
+        "especificaciones": "; Instalación de televisores en soportes; Conexión de dispositivos como reproductores de DVD, juegos, etc.; Verificación del funcionamiento correcto del sistema; Garantía de 15 días en mano de obra",
+        "nuevo": false,
+        "imageCount": 6,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "8_1.jpg",
+                "principal": false,
+                "orden": 1
+            },
+            {
+                "nombre": "8_2.jpg",
+                "principal": false,
+                "orden": 2
+            },
+            {
+                "nombre": "8_3.jpg",
+                "principal": true,
+                "orden": 3
+            },
+            {
+                "nombre": "8_4.jpg",
+                "principal": false,
+                "orden": 4
+            },
+            {
+                "nombre": "8_5.jpg",
+                "principal": false,
+                "orden": 5
+            },
+            {
+                "nombre": "8_6.jpg",
+                "principal": false,
+                "orden": 6
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 9,
+        "nombre": "Reparación de tostadoras",
+        "categoria": "Electrodomésticos",
+        "precioMin": 20.0,
+        "precioMax": 150.0,
+        "descripcion": "Reparación de tostadoras de pan o arepas, de diversas marcas y modelos.",
+        "especificaciones": "; Diagnóstico profesional de fallas en tostadoras; Cableado/Termostato: Verifica continuidad eléctrica con un multímetro. A menudo, el problema es un cable roto, una mala conexión o un termostato dañado que regula la temperatura; Resistencia (Cable de Nicromo): El cable que se calienta (nicromo) puede romperse. Si tienes experiencia, puedes intentar repararlo o reemplazarlo, asegurándote de que no haya cortocircuitos; Limpieza: Contactos sucios pueden generar resistencia. Lija suavemente los puntos de contacto para mejorar la conexión eléctrica, como se muestra en algunos tutoriales; Garantía de 15 días en mano de obra",
+        "nuevo": true,
+        "imageCount": 5,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "9_1.jpg",
+                "principal": false,
+                "orden": 1
+            },
+            {
+                "nombre": "9_2.jpg",
+                "principal": false,
+                "orden": 2
+            },
+            {
+                "nombre": "9_3.jpg",
+                "principal": true,
+                "orden": 3
+            },
+            {
+                "nombre": "9_4.jpg",
+                "principal": false,
+                "orden": 4
+            },
+            {
+                "nombre": "9_5.jpg",
+                "principal": false,
+                "orden": 5
+            }
+        ],
+        "vendido": false
+    },
+    {
+        "id": 10,
+        "nombre": "Reparación de licuadoras",
+        "categoria": "Electrodomésticos",
+        "precioMin": 15.0,
+        "precioMax": 60.0,
+        "descripcion": "Se reparan licuadoras enfocándose en fallas mecánicas (cuchillas, juntas, rodamientos), eléctricas (motor, cableado, tarjeta electrónica) y de sellado (fugas).",
+        "especificaciones": "; Diagnóstico profesional de fallas en licuadoras; Problemas del motor y eléctricos: Motor que no enciende o hace ruido, Sobrecalentamiento, Fallas en la Tarjeta de Control; Problemas de Cuchillas y Trituración: Cuchillas sin filo o desgastadas, Eje de accionamiento (perno) que gira pero no mueve las cuchillas; Problemas de Sellado y Fugas (la falla más común): Fugas por la base del vaso, Fugas persistentes; Problemas de Panel de Control y Botones; Garantía de 15 días en mano de obra",
+        "nuevo": false,
+        "imageCount": 4,
+        "activo": true,
+        "imagenes": [
+            {
+                "nombre": "10_1.jpg",
+                "principal": false,
+                "orden": 1
+            },
+            {
+                "nombre": "10_2.jpg",
+                "principal": true,
+                "orden": 2
+            },
+            {
+                "nombre": "10_3.jpg",
+                "principal": false,
+                "orden": 3
+            },
+            {
+                "nombre": "10_4.jpg",
+                "principal": false,
+                "orden": 4
+            }
+        ],
+        "vendido": false
     }
 ]
+
