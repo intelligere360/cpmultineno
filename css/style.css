@@ -15,9 +15,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 95%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 .logo {
@@ -442,7 +442,7 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .container {
-        padding: 10px;
+        padding: 5px;
     }
     
     .header-top {
