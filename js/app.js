@@ -2,7 +2,7 @@
 const ImageCacheDB = {
     dbName: 'ImageCacheDB',
     storeName: 'images_multineno',
-    version: 1,
+    version: 2,
 
     async openDB() {
         return new Promise((resolve, reject) => {
@@ -17,12 +17,37 @@ const ImageCacheDB = {
                     db.createObjectStore(this.storeName);
                 }
             };
+
+            request.onblocked = () => {
+                console.warn('⚠️ IndexedDB está bloqueada. Cierra otras pestañas.');
+            };
         });
+    },
+
+    // ✅ FUNCIÓN NUEVA: Verificar y crear base de datos si es necesario
+    async ensureDBExists() {
+        try {
+            const db = await this.openDB();
+            
+            // Verificar que el object store existe
+            if (!db.objectStoreNames.contains(this.storeName)) {
+                console.warn('⚠️ Object store no existe, recreando...');
+                // Cerrar y reabrir con nueva versión
+                db.close();
+                this.version += 1;
+                return await this.openDB();
+            }
+            
+            return db;
+        } catch (error) {
+            console.error('❌ Error asegurando existencia de DB:', error);
+            throw error;
+        }
     },
 
     async saveImage(url, blob) {
         try {
-            const db = await this.openDB();
+            const db = await this.ensureDBExists();  // ✅ Usar ensureDBExists
             const transaction = db.transaction([this.storeName], 'readwrite');
             const store = transaction.objectStore(this.storeName);
             store.put(blob, url);
@@ -34,7 +59,7 @@ const ImageCacheDB = {
 
     async getImage(url) {
         try {
-            const db = await this.openDB();
+            const db = await this.ensureDBExists();  // ✅ Usar ensureDBExists
             const transaction = db.transaction([this.storeName], 'readonly');
             const store = transaction.objectStore(this.storeName);
             return new Promise((resolve, reject) => {
@@ -49,8 +74,22 @@ const ImageCacheDB = {
     },
 
     async imageExists(url) {
-        const image = await this.getImage(url);
-        return image !== undefined && image !== null;
+        try {
+            const image = await this.getImage(url);
+            return image !== undefined && image !== null;
+        } catch (error) {
+            return false;
+        }
+    },
+
+    // ✅ FUNCIÓN NUEVA: Limpiar base de datos
+    async clearDatabase() {
+        try {
+            indexedDB.deleteDatabase(this.dbName);
+            console.log('🗑️ Base de datos eliminada, se recreará en próxima apertura');
+        } catch (error) {
+            console.warn('❌ Error limpiando base de datos:', error);
+        }
     }
 };
 
@@ -1706,8 +1745,47 @@ function formatearEspecificaciones(especificaciones) {
 // =============================================
 // INICIALIZACIÓN MEJORADA
 // =============================================
+
+async function inicializarIndexedDBConReintentos() {
+    let intentos = 0;
+    const maxIntentos = 3;
+    
+    while (intentos < maxIntentos) {
+        try {
+            await ImageCacheDB.ensureDBExists();
+            console.log('✅ IndexedDB inicializada correctamente');
+            return true;
+        } catch (error) {
+            intentos++;
+            console.warn(`⚠️ Intento ${intentos}/${maxIntentos} falló:`, error.message);
+            
+            if (intentos >= maxIntentos) {
+                console.warn('❌ Máximo de intentos alcanzado, usando fallback');
+                // Limpiar y recrear
+                await ImageCacheDB.clearDatabase();
+                return false;
+            }
+            
+            // Esperar antes de reintentar
+            await new Promise(resolve => setTimeout(resolve, 1000 * intentos));
+        }
+    }
+    return false;
+}
+
 document.addEventListener('DOMContentLoaded', async function() {
     try {
+        // 0. ✅ INICIALIZAR INDEXEDDB CON REINTENTOS
+        const indexedDBLista = await inicializarIndexedDBConReintentos();
+        
+        if (!indexedDBLista) {
+            console.warn('⚠️ IndexedDB no disponible, usando cache local');
+            // Desactivar precarga si IndexedDB falla
+            ImageCacheDB.getImage = () => Promise.resolve(null);
+            ImageCacheDB.saveImage = () => Promise.resolve();
+            ImageCacheDB.imageExists = () => Promise.resolve(false);
+        }
+
         // 0. Iniciar verificador de actualizaciones
         if (window.LocalConfig && window.LocalConfig.startUpdateChecker) {
             window.LocalConfig.startUpdateChecker();
@@ -1769,7 +1847,7 @@ async function cargarConfiguracionConVersion() {
                 AppState.currentVersion = configData.version;
                 
                 // Verificar si es una versión nueva
-                const storedVersion = localStorage.getItem('app_version_cache');
+                const storedVersion = localStorage.getItem(LOCAL_CONFIG.VERSION_KEY);
                 if (storedVersion !== configData.version) {
                     console.log(`🆕 Nueva versión detectada: ${storedVersion} → ${configData.version}`);
                     
