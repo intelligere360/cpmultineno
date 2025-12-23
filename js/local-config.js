@@ -11,7 +11,7 @@ const LOCAL_CONFIG = {
     
     // Sistema de versionado
     VERSION_KEY: 'appmultineno_version_cache',
-    CACHE_VERSION: 'v1.0.11', // Debe coincidir con config.json
+    CACHE_VERSION: 'v1.0.12', // Debe coincidir con config.json
     CHECK_INTERVAL: 3600000, // 1 hora en milisegundos
 };
 

@@ -96,7 +96,6 @@ const ImageCacheDB = {
 // app.js - VERSIÓN CORREGIDA CON SCROLL FUNCIONAL
 let productos = [];
 let productoActual = null;
-const STATIC_CACHE = 'static-catalogo-v1.1';
 
 // =============================================
 // CONFIGURACIÓN DE CONTACTO Y NOTIFICACIONES
@@ -1822,9 +1821,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         // ✅ NUEVO: 9. Aplicar configuración de precios
         aplicarConfiguracionPrecios();
-
-        // 10. Verificar estado de cache
-        setTimeout(() => verificarEstadoCache(), 2000);
         
         console.log('🚀 Catálogo iniciado con soporte para APK');
     } catch (error) {
@@ -2036,34 +2032,6 @@ async function precargarImagenesEnCache(productos) {
     }
     
     console.log(`🎉 Precarga completada: ${imagenesCacheadas}/${urlsUnicas.length} imágenes en cache`);
-}
-
-/**
- * Verifica el estado de la cache y muestra estadísticas
- */
-async function verificarEstadoCache() {
-  if (!('caches' in window)) {
-    console.log('❌ Cache API no disponible');
-    return;
-  }
-  
-  try {
-    const cache = await caches.open(STATIC_CACHE);
-    const keys = await cache.keys();
-    const imagenesEnCache = keys.filter(key => 
-      key.url.includes('/uc?export=view') || 
-      key.url.includes('googleapis.com')
-    );
-    
-    console.log(`📊 Cache: ${imagenesEnCache.length} imágenes almacenadas`);
-    
-    // Mostrar notificación si hay muchas imágenes en cache
-    if (imagenesEnCache.length > 0) {
-      console.log('✅ Modo offline disponible');
-    }
-  } catch (error) {
-    console.warn('❌ Error verificando cache:', error);
-  }
 }
 
 /* SOBRE LOS PRECIOS A MOSTRAR U OCULTAR */
