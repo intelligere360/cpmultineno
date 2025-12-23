@@ -1,6 +1,6 @@
 // Sistema de cache de imágenes con IndexedDB
 const ImageCacheDB = {
-    dbName: 'ImageCacheDB',
+    dbName: 'ImageCacheDB_Multineno',
     storeName: 'images_multineno',
     version: 2,
 

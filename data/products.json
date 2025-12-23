@@ -183,7 +183,7 @@
         "descripcion": "Instalación de televisores, abarcando colocación en bases aereas y configuración de conexión.",
         "especificaciones": "; Instalacion de bases aéreas para televisores smart TV o pantalla plana; Configuración del sistema del televisor, como la Internet o conexión al WIFI, con router y mandos inhalámbricos; Garantía de 15 días en mano de obra",
         "nuevo": true,
-        "imageCount": 4,
+        "imageCount": 5,
         "activo": true,
         "imagenes": [
             {
@@ -205,6 +205,11 @@
                 "nombre": "5_4.jpg",
                 "principal": false,
                 "orden": 4
+            },
+            {
+                "nombre": "5_5.jpg",
+                "principal": false,
+                "orden": 5
             }
         ],
         "vendido": false
