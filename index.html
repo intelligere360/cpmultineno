@@ -150,10 +150,12 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
-                navigator.serviceWorker.register('./sw.js?v=' + (new Date().getTime()))
+                // ✅ CAMBIAR a sw-cpmultineno.js con scope específico
+                navigator.serviceWorker.register('./sw-cpmultineno.js', {
+                    scope: './'
+                })
                 .then(function(registration) {
-                    console.log('✅ Service Worker registrado:', registration.scope);
-                    
+                    console.log('✅ Service Worker de MultiÑeño registrado:', registration.scope);
                     // Escuchar mensajes del Service Worker
                     navigator.serviceWorker.addEventListener('message', event => {
                         if (event.data.type === 'VERSION_UPDATED') {
@@ -161,11 +163,9 @@
                             mostrarNotificacion(`Versión ${event.data.version} instalada`, 'success');
                         }
                     });
-                    
                     // Iniciar verificador de versiones
                     if (window.versionManager) {
-                        window.versionManager.startPeriodicCheck(1800000);
-                        
+                        window.versionManager.startPeriodicCheck(1800000); 
                         // Escuchar actualizaciones
                         window.versionManager.onUpdate((newVersion, oldVersion) => {
                             console.log(`🆕 Actualización: ${oldVersion} → ${newVersion}`);
@@ -177,7 +177,7 @@
                     }
                 })
                 .catch(function(error) {
-                    console.log('❌ Error registrando Service Worker:', error);
+                    console.log('❌ Error registrando Service Worker de MultiÑeño:', error);
                 });
             });
         }
