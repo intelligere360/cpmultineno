@@ -1,11 +1,20 @@
-// version-manager.js
+// version-manager.js - MULTIÑEÑO
 class VersionManager {
-    constructor() {
+    constructor(siteIdentifier = 'app_default') {
+        this.siteIdentifier = siteIdentifier;
         this.currentVersion = null;
         this.updateListeners = [];
+        
+        // Usar claves específicas por sitio
+        this.STORAGE_KEYS = {
+            VERSION: `${siteIdentifier}_version`,
+            LAST_CHECK: `${siteIdentifier}_last_check`,
+            NOTIFIED: (version) => `${siteIdentifier}_notified_${version}`
+        };
+        // limpiar versiones cruzadas
+        this.cleanupOldKeys();
     }
     
-    // En version-manager.js - VERSIÓN CORREGIDA
     async checkUpdate() {
         try {
             const response = await fetch('./data/config.json?_=' + Date.now(), {
@@ -19,35 +28,32 @@ class VersionManager {
             
             const config = await response.json();
             
-            // ✅ VERIFICACIÓN CRÍTICA
             if (!config || typeof config !== 'object' || !config.version) {
                 console.error('❌ config.json inválido o sin versión');
                 return { hasUpdate: false, error: 'Config inválido' };
             }
             
             const newVersion = config.version.toString().trim();
-            const storedVersion = localStorage.getItem('app_version') || '';
+            const storedVersion = localStorage.getItem(this.STORAGE_KEYS.VERSION) || '';
             
-            console.log(`🔍 Versión almacenada: "${storedVersion}", Nueva: "${newVersion}"`);
+            console.log(`🔍 [${this.siteIdentifier}] Versión almacenada: "${storedVersion}", Nueva: "${newVersion}"`);
             
-            // ✅ SOLO NOTIFICAR SI REALMENTE HAY CAMBIO
             if (storedVersion && storedVersion === newVersion) {
-                console.log('✅ Versión actual, sin cambios');
+                console.log(`✅ [${this.siteIdentifier}] Versión actual`);
                 return { hasUpdate: false };
             }
             
             if (!storedVersion || storedVersion !== newVersion) {
-                console.log(`🔄 Cambio de versión: "${storedVersion}" → "${newVersion}"`);
+                console.log(`🔄 [${this.siteIdentifier}] Cambio: "${storedVersion}" → "${newVersion}"`);
                 
-                // ✅ GUARDAR Y NOTIFICAR
-                localStorage.setItem('app_version', newVersion);
-                localStorage.setItem('app_last_check', Date.now());
+                // Guardar con clave específica del sitio
+                localStorage.setItem(this.STORAGE_KEYS.VERSION, newVersion);
+                localStorage.setItem(this.STORAGE_KEYS.LAST_CHECK, Date.now());
                 
-                // ✅ PREVENIR NOTIFICACIONES MÚLTIPLES
-                const alreadyNotified = localStorage.getItem(`notified_${newVersion}`);
+                const alreadyNotified = localStorage.getItem(this.STORAGE_KEYS.NOTIFIED(newVersion));
                 if (!alreadyNotified) {
                     this.notifyUpdate(newVersion, storedVersion);
-                    localStorage.setItem(`notified_${newVersion}`, 'true');
+                    localStorage.setItem(this.STORAGE_KEYS.NOTIFIED(newVersion), 'true');
                 }
                 
                 return {
@@ -60,58 +66,65 @@ class VersionManager {
             
             return { hasUpdate: false };
         } catch (error) {
-            console.error('❌ Error verificando versión:', error);
+            console.error(`❌ [${this.siteIdentifier}] Error:`, error);
             return { hasUpdate: false, error: error.message };
         }
     }
     
-    // Notificar a los listeners
     notifyUpdate(newVersion, oldVersion) {
         this.updateListeners.forEach(listener => {
             listener(newVersion, oldVersion);
         });
         
-        // Mostrar notificación al usuario
         this.showUpdateNotification(newVersion);
     }
     
-    // Mostrar notificación
     showUpdateNotification(version) {
         if ('Notification' in window && Notification.permission === 'granted') {
-            new Notification('Nueva versión disponible', {
-                body: `El catálogo se ha actualizado a la versión ${version}`,
+            new Notification(`${this.siteIdentifier} - Nueva versión`, {
+                body: `Actualizado a versión ${version}`,
                 icon: './images/icon-192.png'
             });
         }
         
-        // O mostrar notificación en UI
-        mostrarNotificacion(`🔄 Nueva versión ${version} disponible. Recargando...`, 'info');
+        mostrarNotificacion(`🔄 [${this.siteIdentifier}] Nueva versión ${version}. Recargando...`, 'info');
         
-        // Recargar después de 3 segundos
         setTimeout(() => {
             window.location.reload();
         }, 3000);
     }
     
-    // Agregar listener
     onUpdate(listener) {
         this.updateListeners.push(listener);
     }
     
-    // Iniciar verificador periódico
-    startPeriodicCheck(interval = 3600000) { // 1 hora por defecto
-        // Verificar inmediatamente
+    startPeriodicCheck(interval = 3600000) {
         this.checkUpdate();
-        
-        // Verificar periódicamente
         setInterval(() => this.checkUpdate(), interval);
         
-        // Verificar cuando vuelve online
         window.addEventListener('online', () => {
             setTimeout(() => this.checkUpdate(), 5000);
         });
     }
+
+    cleanupOldKeys() {
+        // Eliminar claves genéricas antiguas que puedan causar conflicto
+        const oldKeys = ['app_version', 'app_last_check'];
+        oldKeys.forEach(key => {
+            if (localStorage.getItem(key)) {
+                localStorage.removeItem(key);
+                console.log(`🧹 Eliminada clave antigua: ${key}`);
+            }
+        });
+        
+        // Eliminar notificaciones antiguas con patrón 'notified_'
+        Object.keys(localStorage).forEach(key => {
+            if (key.startsWith('notified_')) {
+                localStorage.removeItem(key);
+            }
+        });
+    }
 }
 
-// Instancia global
-window.versionManager = new VersionManager();
+// Al final de version-manager.js para cpmultineno
+window.versionManager = new VersionManager('cpmultineno');

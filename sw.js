@@ -1,5 +1,5 @@
 // sw.js - CON SISTEMA DE VERSIONADO
-const APP_VERSION = 'v1.0.7'; // Actualizar manualmente aquí también
+const APP_VERSION = 'v1.0.8'; // Actualizar manualmente aquí también
 const CACHE_NAME = 'catalogo-multineno-local-v1.0';
 const STATIC_CACHE = `static-catalogo-multineno-${APP_VERSION}`;
 const DYNAMIC_CACHE = `dynamic-catalogo-multineno-${APP_VERSION}`;
